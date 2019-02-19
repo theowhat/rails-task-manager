@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Tasks List</h1>
+   <% @tasks.each do |task| %>
+    <div>
+      <% if task.completed == false %>
+        <i class="far fa-square">
+      <% else %>
+        <i class="far fa-check-square"></i>
+      <% end %>
+      </i> <%= link_to task.title, task_path(task) %> 
+      <%= link_to task_path(task),
+        method: :delete, 
+        data: { confirm: "Are You Fucking Sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
